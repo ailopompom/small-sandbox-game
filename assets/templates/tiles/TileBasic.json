@@ -1,0 +1,6 @@
+{
+    "name": "tile.basic",
+    "display_name": "Basic Tile",
+
+    "texture": "/assets/textures/tiles/tile_basic.png"
+}
