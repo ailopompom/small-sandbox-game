@@ -39,11 +39,17 @@ export default class Vec2
 
     public set(x: number, y: number): void;
     public set(value: number): void;
-
+    
     public set(x: number, y?: number): void
     {
         this.x = x;
         this.y = y ?? x;
+    }
+
+    public setFromVec(vec: Vec2): void
+    {
+        this.x = vec.x;
+        this.y = vec.y;
     }
 
     /**
@@ -90,6 +96,11 @@ export default class Vec2
         return new Vec2(this.x * value.x, this.y * value.y);
     }
 
+    public invert(): Vec2
+    {
+        return new Vec2(this.x * -1, this.y * -1);
+    }
+
     // OTHER COMPARATIVE OPERATIONS
 
     /**
@@ -101,5 +112,27 @@ export default class Vec2
         const deltaX = this.x - vec.x;
         const deltaY = this.y - vec.y;
         return deltaX * deltaX + deltaY * deltaY;
+    }
+
+    // STATICS
+
+    public static zero(): Vec2
+    {
+        return new Vec2(0);
+    }
+
+    public static left(): Vec2
+    {
+        return new Vec2(1, 0);
+    }
+
+    public static top(): Vec2
+    {
+        return new Vec2(0, 1);
+    }
+
+    public static isVec2(obj: any): boolean
+    {
+        return typeof this == typeof obj;
     }
 }
